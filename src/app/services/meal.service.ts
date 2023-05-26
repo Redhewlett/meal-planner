@@ -11,10 +11,11 @@ export class MealService {
 
   constructor(private http: HttpClient) {}
 
-  public getMeals() {
+  public getMeals(): Observable<Meal[]> {
     return this.http.get<Meal[]>('http://localhost:3000/meals').pipe(
       map((data) => {
         this.meals = data;
+        return data;
       })
     );
   }

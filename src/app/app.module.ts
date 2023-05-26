@@ -8,6 +8,10 @@ import { HttpClientModule } from '@angular/common/http';
 // angular material
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatStepperModule } from '@angular/material/stepper';
 // components
 import { NavbarComponent } from './components/ui/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
@@ -29,8 +33,16 @@ import { PlanWeekComponent } from './components/plan-week/plan-week.component';
     BrowserAnimationsModule,
     MatButtonModule,
     MatIconModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatStepperModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: STEPPER_GLOBAL_OPTIONS,
+      useValue: { showError: true },
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
