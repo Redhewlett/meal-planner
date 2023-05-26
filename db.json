@@ -1,0 +1,11 @@
+{
+  "meals": [
+    {
+      "id": 1,
+      "name": "Burger",
+      "ingredients": ["Bread", "Meat", "Cheese", "Lettuce", "Tomato"],
+      "lvl": 1,
+      "tags": ["Fast Food", "American"]
+    }
+  ]
+}
