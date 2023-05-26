@@ -1,0 +1,20 @@
+<nav class="navBar">
+  <h1>WA Meal Planner <mat-icon>favorite</mat-icon></h1>
+  <ul class="navBar__buttons">
+    <li>
+      <button mat-icon-button color="primary" (click)="navigate('')"><mat-icon>home</mat-icon></button>
+    </li>
+    <li>
+      <button mat-fab extended (click)="navigate('addMeal')">
+        <mat-icon>add</mat-icon>
+        Add meal
+      </button>
+    </li>
+    <li>
+      <button mat-fab extended (click)="navigate('planWeek')">
+        <mat-icon>calendar_today</mat-icon>
+        Plan week
+      </button>
+    </li>
+  </ul>
+</nav>
