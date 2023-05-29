@@ -3,9 +3,53 @@
     {
       "id": 1,
       "name": "Burger",
-      "ingredients": ["Bread", "Meat", "Cheese", "Lettuce", "Tomato"],
-      "lvl": 1,
-      "tags": ["Fast Food", "American"]
+      "ingredients": [
+        "Bread",
+        "Meat",
+        "Cheese",
+        "Lettuce",
+        "Tomato"
+      ],
+      "difficulty": 2,
+      "tags": [
+        "Fast Food",
+        "American"
+      ],
+      "image": "https://images.pexels.com/photos/13573663/pexels-photo-13573663.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    },
+    {
+      "id": 1685357129442,
+      "name": "pizza",
+      "ingredients": [
+        "tomato sauce",
+        "ham",
+        "mozza"
+      ],
+      "difficulty": 4,
+      "tags": [
+        "pizza",
+        "italy",
+        "easy"
+      ],
+      "image": "https://images.pexels.com/photos/8725224/pexels-photo-8725224.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    },
+    {
+      "id": 1685374255014,
+      "name": "bokit",
+      "ingredients": [
+        "chicken",
+        "salad",
+        "tomato",
+        "ognons",
+        "bokit bread"
+      ],
+      "difficulty": 3,
+      "tags": [
+        "bokit",
+        "west indies",
+        "frying"
+      ],
+      "image": "https://images.pexels.com/photos/10831662/pexels-photo-10831662.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     }
   ]
 }

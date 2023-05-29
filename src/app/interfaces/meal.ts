@@ -2,6 +2,7 @@ export interface Meal {
   id: number;
   name: string;
   ingredients: string[];
-  lvl: number;
+  difficulty: number;
   tags: string[];
+  image?: string;
 }

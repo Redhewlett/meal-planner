@@ -19,4 +19,8 @@ export class MealService {
       })
     );
   }
+
+  public addMeal(meal: Meal): Observable<Meal> {
+    return this.http.post<Meal>('http://localhost:3000/meals', meal);
+  }
 }

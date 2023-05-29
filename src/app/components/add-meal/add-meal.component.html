@@ -1,0 +1,61 @@
+<div>
+  <h2>🍕 Add a new meal 🌮</h2>
+  <p>Once it is added, you can go ahead and use it in the week planner</p>
+  <form [formGroup]="mealForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>Meal name</mat-label>
+      <input
+        type="text"
+        formControlName="name"
+        matInput
+        placeholder="Ex. Pizza"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Ingredients</mat-label>
+      <input
+        type="text"
+        formControlName="ingredients"
+        matInput
+        placeholder="Use coma between ingredients"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Difficulty</mat-label>
+      <input
+        formControlName="difficulty"
+        matInput
+        type="number"
+        min="1"
+        max="6"
+        placeholder="Ex. Pizza"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Meal tags</mat-label>
+      <input
+        type="text"
+        formControlName="tags"
+        matInput
+        placeholder="Use coma between tags"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Image url</mat-label>
+      <input
+        type="text"
+        formControlName="image"
+        matInput
+        placeholder="optional image url"
+      />
+    </mat-form-field>
+    <button
+      [disabled]="!this.mealForm.valid"
+      color="accent"
+      mat-raised-button
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+</div>
