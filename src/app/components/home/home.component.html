@@ -1,4 +1,10 @@
 <div>
-  home works!
-  {{ this.mealService.meals | json }}
+  <app-meal-card
+    *ngFor="let meal of this.mealService.meals"
+    [meal]="meal"
+  ></app-meal-card>
+  <app-meal-card
+    *ngFor="let meal of this.mealService.meals"
+    [meal]="meal"
+  ></app-meal-card>
 </div>

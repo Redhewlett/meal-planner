@@ -5,3 +5,8 @@
   padding-inline: 1rem;
   padding-block: 2rem;
 }
+
+@mixin flex-col {
+  display: flex;
+  flex-direction: column;
+}
