@@ -50,5 +50,7 @@ export class AddMealComponent {
     this.mealService.addMeal(newMeal).subscribe((meal) => {
       this.mealService.getMeals().subscribe();
     });
+
+    this.mealForm.reset();
   }
 }

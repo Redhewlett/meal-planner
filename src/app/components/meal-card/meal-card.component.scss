@@ -4,6 +4,7 @@
 .card {
   min-width: 45%;
   height: 250px;
+  position: relative;
   display: flex;
   align-items: center;
   padding: 0.4rem;
@@ -14,7 +15,12 @@
   transition: all 0.2s ease-in-out;
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0px 10px 10px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 10px 20px 0 rgba(0, 0, 0, 0.2);
+  }
+  &__deleteBtn {
+    position: absolute;
+    top: 8px;
+    right: 4px;
   }
   & img {
     width: 40%;
@@ -28,9 +34,7 @@
     padding: 0.8rem;
     @include flex-col;
     gap: 1rem;
-    & h2 {
-      font-weight: 600;
-    }
+
     & p {
       @include flex-col;
       gap: 1rem;
@@ -40,6 +44,8 @@
     &__tags {
       width: 100%;
       display: flex;
+      flex-wrap: wrap;
+      align-items: center;
       gap: 0.4rem;
       & b {
         font-weight: 500;
@@ -52,6 +58,10 @@
           cursor: pointer;
         }
       }
+    }
+    &__ingredients {
+      max-height: 70px;
+      overflow: auto;
     }
     &__difficulty {
       display: flex;

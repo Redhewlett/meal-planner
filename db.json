@@ -1,55 +1,72 @@
 {
   "meals": [
     {
-      "id": 1,
-      "name": "Burger",
-      "ingredients": [
-        "Bread",
-        "Meat",
-        "Cheese",
-        "Lettuce",
-        "Tomato"
-      ],
-      "difficulty": 2,
-      "tags": [
-        "Fast Food",
-        "American"
-      ],
-      "image": "https://images.pexels.com/photos/13573663/pexels-photo-13573663.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-    },
-    {
       "id": 1685357129442,
       "name": "pizza",
-      "ingredients": [
-        "tomato sauce",
-        "ham",
-        "mozza"
-      ],
+      "ingredients": ["tomato sauce", "ham", "mozza"],
       "difficulty": 4,
-      "tags": [
-        "pizza",
-        "italy",
-        "easy"
-      ],
+      "tags": ["pizza", "italy", "easy"],
       "image": "https://images.pexels.com/photos/8725224/pexels-photo-8725224.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
-      "id": 1685374255014,
-      "name": "bokit",
+      "id": 1685817661403,
+      "name": "Bokit",
+      "ingredients": ["salade", "tomate", "pain bokit", "poulet", "oignons"],
+      "difficulty": 4,
+      "tags": ["guadeloupe", "west-indies", "frying"],
+      "image": "https://uploads-ssl.webflow.com/6393b5675b9ac91f5bf3afc5/6393bb818bad1a9891ff3894_271673475_1090924368356985_1236332114469223166_n.webp"
+    },
+    {
+      "id": 1685818005173,
+      "name": "mom's lasagnas",
       "ingredients": [
-        "chicken",
-        "salad",
-        "tomato",
+        "ground beef",
+        "tomato sauce",
+        "béchamelle sauce",
+        "pasta",
         "ognons",
-        "bokit bread"
+        "fresh grated cheese"
       ],
-      "difficulty": 3,
-      "tags": [
-        "bokit",
-        "west indies",
-        "frying"
-      ],
-      "image": "https://images.pexels.com/photos/10831662/pexels-photo-10831662.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      "difficulty": 2,
+      "tags": ["Lasagna", "Italy"],
+      "image": "https://images.pexels.com/photos/6046493/pexels-photo-6046493.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    }
+  ],
+  "week": [
+    {
+      "id": "monday",
+      "lunch": null,
+      "dinner": null
+    },
+    {
+      "id": "tuesday",
+      "lunch": null,
+      "dinner": null
+    },
+    {
+      "id": "wednesday",
+      "lunch": null,
+      "dinner": null
+    },
+    {
+      "id": "thursday",
+      "lunch": null,
+      "dinner": null
+    },
+    {
+      "id": "friday",
+      "lunch": null,
+      "dinner": null
+    },
+    {
+      "id": "saturday",
+      "lunch": null,
+      "dinner": null
+    },
+    {
+      "id": "sunday",
+      "lunch": null,
+      "dinner": null
     }
   ]
 }

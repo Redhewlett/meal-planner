@@ -1,5 +1,13 @@
 <div class="card" *ngIf="meal">
   <img [src]="meal.image" />
+  <button
+    class="card__deleteBtn"
+    mat-icon-button
+    color="primary"
+    (click)="this.mealService.openDialog(meal.id)"
+  >
+    <mat-icon>delete</mat-icon>
+  </button>
   <div class="card__text">
     <h2>{{ meal.name }}</h2>
     <p>

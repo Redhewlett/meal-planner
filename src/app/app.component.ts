@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MealService } from './services/meal.service';
+import { WeekService } from './services/week.service';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,11 @@ import { MealService } from './services/meal.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  constructor(public mealService: MealService) {
-    mealService.getMeals().subscribe();
+  constructor(
+    public mealService: MealService,
+    public weekService: WeekService
+  ) {
+    this.mealService.getMeals().subscribe();
+    this.weekService.getPlan().subscribe();
   }
 }
