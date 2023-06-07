@@ -12,6 +12,7 @@ export class WeekService {
 
   constructor(public httpClient: HttpClient) {
     this.setWeekCurrentWeek();
+    console.log(this.week);
   }
 
   public getPlan(): Observable<PlannedDay[]> {

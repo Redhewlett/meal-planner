@@ -31,10 +31,10 @@
     }
     & .mdc-fab {
       box-shadow: none;
-      transition: all 0.3s ease-in-out;
+      transition: all 0.2s ease-in-out;
       &:hover {
         background-color: white;
-        outline: 2px solid #2196f3;
+        outline: 1px solid $primary;
         color: $primary;
       }
     }
