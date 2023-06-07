@@ -2,10 +2,14 @@
   <div class="week__view">
     <header class="week__view__ctrl">
       <h2>{{ this.weekService.currentMonth }} {{ this.year }}</h2>
-      <mat-icon inline>keyboard_arrow_left</mat-icon>
-      <mat-icon inline> keyboard_arrow_right</mat-icon>
+      <mat-icon inline (click)="animate('previous')"
+        >keyboard_arrow_left</mat-icon
+      >
+      <mat-icon inline (click)="animate('next')">
+        keyboard_arrow_right</mat-icon
+      >
     </header>
-    <div class="week__view__columns">
+    <div class="week__view__columns" [ngClass]="moved !== '' ? moved : ''">
       <div
         class="week__view__columns__column"
         *ngFor="let day of this.weekService.month[this.weekService.weekNumber]"

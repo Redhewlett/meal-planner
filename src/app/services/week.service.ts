@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { PlannedDay } from '../interfaces/planned-day';
-import { Observable, map } from 'rxjs';
+import { map } from 'rxjs';
 
 type settings = {
   currentMonth: string;
@@ -113,5 +113,15 @@ export class WeekService {
   //post to month
   public postMonth(month: PlannedDay[][]) {
     return this.httpClient.post('http://localhost:3000/month', month);
+  }
+
+  public changeWeek(direction: string) {
+    // change week number
+    if (direction === 'next') {
+      this.weekNumber++;
+    }
+    if (direction === 'previous') {
+      this.weekNumber--;
+    }
   }
 }
