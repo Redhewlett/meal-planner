@@ -13,6 +13,5 @@ export class AppComponent {
     public weekService: WeekService
   ) {
     this.mealService.getMeals().subscribe();
-    this.weekService.getPlan().subscribe();
   }
 }

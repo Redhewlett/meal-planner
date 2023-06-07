@@ -1,8 +1,5 @@
 @import "../../../variables.scss";
 @import "../../../mixins.scss";
-div {
+.home {
   @include main-content;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 3rem 1rem;
 }

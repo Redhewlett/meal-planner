@@ -6,7 +6,11 @@
   padding-block: 2rem;
 }
 
-@mixin flex-col {
+@mixin flex {
   display: flex;
+}
+
+@mixin flex-col {
+  @include flex;
   flex-direction: column;
 }

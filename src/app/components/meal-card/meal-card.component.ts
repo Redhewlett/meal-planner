@@ -8,9 +8,9 @@ import { MealService } from 'src/app/services/meal.service';
   styleUrls: ['./meal-card.component.scss'],
 })
 export class MealCardComponent {
-  @Input() meal: Meal | null = null;
+  @Input() meal: Meal | null | undefined = null;
 
-  constructor(public mealService:MealService) {}
+  constructor(public mealService: MealService) {}
 
   public range(n: number): number[] {
     return [...Array(n).keys()];

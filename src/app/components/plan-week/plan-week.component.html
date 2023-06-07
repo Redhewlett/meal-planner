@@ -1,3 +1,7 @@
-<p>plan-week works!</p>
-
-{{ this.weekService.weekPlan | json }}
+<div>
+  <p *ngFor="let day of this.weekService.month[this.weekService.weekNumber]">
+    <app-meal-card
+      [meal]="this.mealService.getMealById(day.lunch ? day.lunch : 0)"
+    ></app-meal-card>
+  </p>
+</div>

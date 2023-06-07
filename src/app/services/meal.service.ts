@@ -40,4 +40,13 @@ export class MealService {
     this.http.delete<Meal>(`http://localhost:3000/meals/${id}`).subscribe();
     this.getMeals().subscribe();
   }
+
+  public getMealById(id: number) {
+    if (this.meals) {
+      return this.meals.find((meal) => meal.id === id);
+    } else {
+      // get if from db
+      return null;
+    }
+  }
 }
