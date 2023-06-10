@@ -18,6 +18,7 @@ export class WeekService {
   constructor(public httpClient: HttpClient) {
     this.checkMonth().subscribe();
     this.getMonth().subscribe();
+    console.log(this.weekNumber);
   }
 
   private checkMonth() {
@@ -107,7 +108,8 @@ export class WeekService {
   public getCurrentWeek() {
     const today = new Date().getDate();
     const currentWeek = Math.ceil(today / 7);
-    return currentWeek;
+    // minus 1 because array starts at 0
+    return currentWeek - 1;
   }
 
   //post to month
