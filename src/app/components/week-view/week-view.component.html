@@ -1,7 +1,10 @@
 <div class="week">
   <div class="week__view">
     <header class="week__view__ctrl">
-      <h2>{{ this.weekService.currentMonth }} {{ this.year }}</h2>
+      <h2>
+        {{ this.weekService.months[this.weekService.month] }}
+        {{ this.weekService.year }}
+      </h2>
       <mat-icon inline (click)="animate('previous')"
         >keyboard_arrow_left</mat-icon
       >
@@ -12,26 +15,43 @@
     <div class="week__view__columns" [ngClass]="moved !== '' ? moved : ''">
       <div
         class="week__view__columns__column"
-        *ngFor="let day of this.weekService.month[this.weekService.weekNumber]"
+        [ngClass]="day === '' ? 'disabled' : 'show'"
+        *ngFor="
+          let day of this.weekService.calendar[this.weekService.weekNumber];
+          let i = index
+        "
       >
         <h3 class="week__view__columns__column__header">
-          {{ day.weekDay }}
-          <span [ngClass]="+day.date === today ? 'active' : ''">
-            {{ day.date }}
+          {{ this.weekService.days[i] }}
+          <span
+            [ngClass]="
+              +day === this.weekService.today &&
+              this.weekService.months[this.weekService.month] ===
+                this.weekService.currentMonthName
+                ? 'active'
+                : ''
+            "
+          >
+            {{ day }}
           </span>
         </h3>
-        <ul>
-          <li>
+        <ul class="meal">
+          <li class="meal__line">
             Lunch :
-            <app-meal-card
-              [meal]="this.mealService.getMealById(day.lunch ? day.lunch : 0)"
-            ></app-meal-card>
+            <button
+              *ngIf="day !== ''"
+              mat-mini-fab
+              color="primary"
+              (click)="this.planMealService.planLunch(+day)"
+            >
+              <mat-icon>add</mat-icon>
+            </button>
           </li>
-          <li>
+          <li class="meal__line">
             Dinner :
-            <app-meal-card
-              [meal]="this.mealService.getMealById(day.dinner ? day.dinner : 0)"
-            ></app-meal-card>
+            <button *ngIf="day !== ''" mat-mini-fab color="primary">
+              <mat-icon>add</mat-icon>
+            </button>
           </li>
         </ul>
       </div>

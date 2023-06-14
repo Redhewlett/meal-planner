@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { PlannedDay } from '../interfaces/planned-day';
 import { map } from 'rxjs';
 
 type settings = {
@@ -11,118 +10,133 @@ type settings = {
   providedIn: 'root',
 })
 export class WeekService {
-  public currentMonth = new Date().toLocaleString('en-EN', { month: 'long' });
-  public month: PlannedDay[][] = [];
-  public weekNumber = this.getCurrentWeek();
+  public month = new Date().getMonth() + 1;
+  public currentMonthName = new Date().toLocaleString('en-EN', {
+    month: 'long',
+  });
+  public year = new Date().getFullYear();
+  public calendar: Array<Array<number | string>> = [];
+  public weekNumber = 0;
+  public today = new Date().getDate();
+  public months = [
+    '',
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+  public days = [
+    'Monday',
+    'Tueday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+    'Sunday',
+  ];
 
-  constructor(public httpClient: HttpClient) {
-    this.checkMonth().subscribe();
-    this.getMonth().subscribe();
+  constructor() {
+    this.generateCalendar();
   }
 
-  private checkMonth() {
-    return this.httpClient.get<settings>('http://localhost:3000/settings').pipe(
-      map((data) => {
-        const isCurrentMonth =
-          data.currentMonth.toLocaleLowerCase() ===
-          this.currentMonth.toLocaleLowerCase();
-        if (!isCurrentMonth) {
-          this.setMonthName(this.currentMonth).subscribe();
-          // do bunch of stuff after month change
-        }
-      })
-    );
-  }
+  public generateCalendar() {
+    // 0 = Sunday, 1 = Monday, etc so we convert 0 to 6 for the array index
 
-  private setMonthName(month: string) {
-    return this.httpClient.patch<settings>('http://localhost:3000/settings', {
-      currentMonth: month,
-    });
-  }
+    //check how many days in this month
+    const daysInMonth = new Date(this.year, this.month, 0).getDate();
+    //check what day is the first day of this month
+    const firstDay = new Date(this.year, this.month - 1, 1).getDay();
 
-  public getMonth() {
-    return this.httpClient.get('http://localhost:3000/month').pipe(
-      map((data: any) => {
-        // check if data is empty (first launch of a user)
-        if (data.length === 0) {
-          // generate month
-          const tempMonth = this.generateMonth(this.currentMonth);
-          // post month to db
-          this.postMonth(tempMonth).subscribe();
-          // set month
-          this.month = tempMonth;
-          console.log('month generated');
+    // generate 2d array with weeks and days
+    const calendar = new Array(5);
+
+    let week = [];
+    let daysInWeek = 7;
+    let day = 1;
+
+    for (let i = 0; i < calendar.length; i++) {
+      // reset week
+      week = [];
+      // check if week is last week
+      for (let j = 0; j < daysInWeek; j++) {
+        if (firstDay === 0 && i === 0 && j !== 6) {
+          // if first day is sunday and first week and not last day of week
+          week.push('');
+        } else if (day > daysInMonth) {
+          // reached end of month
+          week.push('');
+        } else if (j + 1 < firstDay && i === 0) {
+          // add empty days before first day of month
+          week.push('');
         } else {
-          console.log('already exists');
-          this.month = data[0];
+          week.push(day);
+          day++;
         }
-        return data;
-      })
-    );
-  }
-
-  private generateMonth(month: string) {
-    const year = new Date().getFullYear();
-    const monthStart = new Date(`01 ${month} ${year}`);
-
-    const monthEnd = new Date(
-      monthStart.getFullYear(),
-      monthStart.getMonth() + 1,
-      0
-    );
-
-    const daysInMonth = monthEnd.getDate();
-
-    const weeksArray = [];
-    let weekArray: PlannedDay[] = [];
-    let weekCounter = 0;
-    for (let i = 1; i <= daysInMonth; i++) {
-      const day = new Date(`${i} ${month} ${year}`)
-        .toLocaleString('en-EN', {
-          weekday: 'long',
-          day: 'numeric',
-        })
-        .split(' ');
-      //
-      const dayObject: PlannedDay = {
-        // use timestamp as id
-        id: new Date(`${i} ${month} ${year}`).getTime(),
-        date: day[0],
-        weekDay: day[1],
-        lunch: null,
-        dinner: null,
-      };
-      if (day[1] === 'Monday' && i !== 1) {
-        weeksArray.push(weekArray);
-        weekArray = [];
-        weekCounter++;
       }
-      weekArray.push(dayObject);
+      calendar[i] = week;
     }
-    weeksArray.push(weekArray);
-    return weeksArray;
+    this.calendar = calendar;
+    this.weekNumber = this.getWeekNumber();
   }
 
-  // get the current week number in the month array
-  public getCurrentWeek() {
-    const today = new Date().getDate();
-    const currentWeek = Math.ceil(today / 7);
-    // minus 1 because array starts at 0
-    return currentWeek;
-  }
-
-  //post to month
-  public postMonth(month: PlannedDay[][]) {
-    return this.httpClient.post('http://localhost:3000/month', month);
-  }
-
-  public changeWeek(direction: string) {
-    // change week number
+  changeMonth(direction: string) {
     if (direction === 'next') {
-      this.weekNumber++;
+      if (this.month === 12) {
+        this.month = 1;
+        this.year++;
+      } else {
+        this.month++;
+      }
+    } else {
+      if (this.month === 1) {
+        this.month = 12;
+        this.year--;
+      } else {
+        this.month--;
+      }
     }
-    if (direction === 'previous') {
-      this.weekNumber--;
+    this.generateCalendar();
+  }
+
+  changeWeek(direction: string) {
+    if (direction === 'next') {
+      // check if next week is in next month
+      if (this.weekNumber === 4) {
+        this.changeMonth('next');
+        this.weekNumber = 0;
+      } else {
+        this.weekNumber++;
+      }
+    } else {
+      // check if previous week is in previous month
+      if (this.weekNumber === 0) {
+        this.changeMonth('previous');
+        this.weekNumber = 4;
+      } else {
+        this.weekNumber--;
+      }
+      console.log(this.weekNumber);
+      console.log(this.calendar[this.weekNumber]);
     }
+  }
+
+  getWeekNumber() {
+    // get the curent week's number from the calendar
+    const today = new Date().getDate();
+    let weekNumber = 0;
+    for (let i = 0; i < this.calendar.length; i++) {
+      if (this.calendar[i].includes(today)) {
+        weekNumber = i;
+      }
+    }
+    return weekNumber;
   }
 }

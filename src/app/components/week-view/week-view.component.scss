@@ -57,6 +57,9 @@
         gap: 1rem;
         border-left: 1px solid $light-grey;
         border-top: 1px solid $light-grey;
+        &.disabled {
+          background-color: lighten($light-grey, 10%);
+        }
         &:last-of-type {
           border-right: 1px solid $light-grey;
         }
@@ -77,6 +80,7 @@
             place-items: center;
           }
           &:has(.active) {
+            color: $tertiary;
             font-weight: bold;
             background-color: lighten($light-grey, 15);
           }
@@ -87,13 +91,6 @@
             background-size: cover;
             color: white;
           }
-        }
-        & ul {
-          @include flex-col;
-          gap: 2rem;
-          list-style: none;
-          padding: 0rem 1rem;
-          margin: 0;
         }
       }
     }
@@ -119,5 +116,23 @@
   100% {
     opacity: 1;
     transform: translateX(0%);
+  }
+}
+
+.meal {
+  @include flex-col;
+  gap: 2rem;
+  list-style: none;
+  padding: 0rem 1rem;
+  margin: 0;
+  &__line {
+    font-weight: 500;
+    @include flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+  & button {
+    box-shadow: none;
   }
 }
