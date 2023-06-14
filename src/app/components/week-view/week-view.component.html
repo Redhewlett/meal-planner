@@ -24,16 +24,19 @@
         <h3 class="week__view__columns__column__header">
           {{ this.weekService.days[i] }}
           <span
+            *ngIf="day !== ''"
             [ngClass]="
-              +day === this.weekService.today &&
+              day.getDate() === this.weekService.today &&
               this.weekService.months[this.weekService.month] ===
                 this.weekService.currentMonthName
                 ? 'active'
                 : ''
             "
           >
-            {{ day }}
+            {{ day.getDate() }}
           </span>
+          <!-- for empty days -->
+          <span *ngIf="day === ''"></span>
         </h3>
         <ul class="meal">
           <li class="meal__line">
@@ -42,7 +45,7 @@
               *ngIf="day !== ''"
               mat-mini-fab
               color="primary"
-              (click)="this.planMealService.planLunch(+day)"
+              (click)="this.planMealService.planLunch(day)"
             >
               <mat-icon>add</mat-icon>
             </button>

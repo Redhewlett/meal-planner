@@ -15,7 +15,7 @@ export class WeekService {
     month: 'long',
   });
   public year = new Date().getFullYear();
-  public calendar: Array<Array<number | string>> = [];
+  public calendar: Array<Array<Date | ''>> = [];
   public weekNumber = 0;
   public today = new Date().getDate();
   public months = [
@@ -77,7 +77,9 @@ export class WeekService {
           // add empty days before first day of month
           week.push('');
         } else {
-          week.push(day);
+          // generate Date using day and month
+          const d = new Date(`${day} ${this.months[this.month]} ${this.year}`);
+          week.push(d);
           day++;
         }
       }
@@ -123,18 +125,30 @@ export class WeekService {
       } else {
         this.weekNumber--;
       }
-      console.log(this.weekNumber);
-      console.log(this.calendar[this.weekNumber]);
     }
   }
 
   getWeekNumber() {
     // get the curent week's number from the calendar
-    const today = new Date().getDate();
+    const today = new Date().toLocaleString('en-EN', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
     let weekNumber = 0;
     for (let i = 0; i < this.calendar.length; i++) {
-      if (this.calendar[i].includes(today)) {
-        weekNumber = i;
+      for (let j = 0; j < this.calendar[i].length; j++) {
+        if (this.calendar[i][j] === '') continue;
+
+        if (
+          this.calendar[i][j].toLocaleString('en-EN', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          }) === today
+        ) {
+          weekNumber = i;
+        }
       }
     }
     return weekNumber;

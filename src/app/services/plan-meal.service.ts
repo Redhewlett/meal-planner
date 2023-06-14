@@ -9,21 +9,22 @@ import { WeekService } from './week.service';
 export class PlanMealService {
   constructor(public httpClient: HttpClient, public weekService: WeekService) {}
 
-  public planLunch(day: number) {
+  public planLunch(day: Date) {
     // generate day using the passed day and data from the week service
-    const d = new Date(
-      `${day} ${this.weekService.months[this.weekService.month]} ${
-        this.weekService.year
-      }`
-    );
+    console.log({
+      id: Date.now() + Math.random() / Math.PI,
+      date: day,
+      lunch: 1685818005173,
+      dinner: null,
+    });
     // post the meal to the backend
-    this.httpClient
-      .post<PlannedMeal>('http://localhost:3000/plannedMeals', {
-        id: Date.now() + Math.random() / Math.PI,
-        date: d,
-        lunch: 1685818005173,
-        dinner: null,
-      })
-      .subscribe();
+    // this.httpClient
+    //   .post<PlannedMeal>('http://localhost:3000/plannedMeals', {
+    //     id: Date.now() + Math.random() / Math.PI,
+    //     date: d,
+    //     lunch: 1685818005173,
+    //     dinner: null,
+    //   })
+    //   .subscribe();
   }
 }
