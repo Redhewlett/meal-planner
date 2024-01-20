@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { MealService } from 'src/app/services/meal.service';
-import { WeekService } from 'src/app/services/week.service';
 
 @Component({
   selector: 'app-plan-week',
@@ -9,7 +8,6 @@ import { WeekService } from 'src/app/services/week.service';
 })
 export class PlanWeekComponent {
   constructor(
-    public weekService: WeekService,
     public mealService: MealService
   ) {}
 }

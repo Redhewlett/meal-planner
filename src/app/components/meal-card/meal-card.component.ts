@@ -8,7 +8,7 @@ import { MealService } from 'src/app/services/meal.service';
   styleUrls: ['./meal-card.component.scss'],
 })
 export class MealCardComponent {
-  @Input() meal: Meal | null | undefined = null;
+  @Input() meal: Meal | null = null;
 
   constructor(public mealService: MealService) {}
 

@@ -21,7 +21,6 @@ import { AddMealComponent } from './components/add-meal/add-meal.component';
 import { PlanWeekComponent } from './components/plan-week/plan-week.component';
 import { MealCardComponent } from './components/meal-card/meal-card.component';
 import { ConfirmComponent } from './components/confirm/confirm.component';
-import { WeekViewComponent } from './components/week-view/week-view.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +31,6 @@ import { WeekViewComponent } from './components/week-view/week-view.component';
     PlanWeekComponent,
     MealCardComponent,
     ConfirmComponent,
-    WeekViewComponent,
   ],
   imports: [
     BrowserModule,
