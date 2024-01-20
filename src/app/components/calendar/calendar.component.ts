@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { CalendarOptions } from '@fullcalendar/core';
-import 'bootstrap/dist/css/bootstrap.css';
 @Component({
   selector: 'app-calendar',
   standalone: true,
@@ -15,6 +14,5 @@ export class CalendarComponent {
  calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
     plugins: [dayGridPlugin],
-    themeSystem: 'bootstrap5',
   };
 }
