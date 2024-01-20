@@ -1,6 +1,6 @@
 @use "@angular/material" as mat;
 @include mat.core();
-@import "../node_modules/@angular/material/theming";
+@import "../node_modules/@angular/material/index";
 
 $primary: mat.define-palette($mat-blue, A700);
 $accent: mat.define-palette($mat-amber, 600);
