@@ -21,7 +21,7 @@ import { AddMealComponent } from './components/add-meal/add-meal.component';
 import { PlanWeekComponent } from './components/plan-week/plan-week.component';
 import { MealCardComponent } from './components/meal-card/meal-card.component';
 import { ConfirmComponent } from './components/confirm/confirm.component';
-
+import { CalendarComponent } from './components/calendar/calendar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +45,7 @@ import { ConfirmComponent } from './components/confirm/confirm.component';
     MatFormFieldModule,
     MatChipsModule,
     MatDialogModule,
+    CalendarComponent
   ],
   providers: [],
   bootstrap: [AppComponent],
