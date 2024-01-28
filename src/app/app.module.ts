@@ -16,7 +16,6 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatDialogModule } from '@angular/material/dialog';
 // components
 import { NavbarComponent } from './components/ui/navbar/navbar.component';
-import { HomeComponent } from './components/home/home.component';
 import { AddMealComponent } from './components/add-meal/add-meal.component';
 import { PlanWeekComponent } from './components/plan-week/plan-week.component';
 import { MealCardComponent } from './components/meal-card/meal-card.component';
@@ -26,7 +25,6 @@ import { CalendarComponent } from './components/calendar/calendar.component';
   declarations: [
     AppComponent,
     NavbarComponent,
-    HomeComponent,
     AddMealComponent,
     PlanWeekComponent,
     MealCardComponent,
