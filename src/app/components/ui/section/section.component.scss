@@ -1,0 +1,11 @@
+@import "../../../../mixins.scss";
+@import "../../../../variables.scss";
+
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: white;
+  @include content-pad;
+}
+
