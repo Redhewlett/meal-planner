@@ -1,8 +1,12 @@
+@import '../../../../mixins.scss';
+@import '../../../../variables.scss';
+
 header {
-  padding-block: 8rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  background-color: $background;
+  @include content-pad;
 }
 
 .cta {

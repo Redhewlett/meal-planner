@@ -14,3 +14,8 @@
   @include flex;
   flex-direction: column;
 }
+
+@mixin content-pad{
+  padding-inline: 10rem;
+  padding-block: 4rem;
+}
