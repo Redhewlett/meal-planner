@@ -5,9 +5,13 @@ header {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  background: url('/assets/images/mealprep1.jpg') no-repeat;
+  background: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.6)
+    ), url('/assets/images/mealprep2.jpg') no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   @include content-pad;
   color: $text-w;
 }
