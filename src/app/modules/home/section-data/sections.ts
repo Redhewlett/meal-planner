@@ -4,7 +4,7 @@ export const sections: Sections[] = [
   {
     id: 1,
     sectionTitle: 'Organize your meal preps effortlessly',
-    sectionSubtitle: 'Discover the convenience of our meal prep organizer an enjoy stress-free coocking.',
+    sectionSubtitle: 'Discover the convenience of our meal prep organizer and enjoy stress-free coocking.',
     sectionImage: 'assets/images/mealprep1.jpg'
   },
   {
