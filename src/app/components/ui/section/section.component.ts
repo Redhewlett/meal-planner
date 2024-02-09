@@ -11,4 +11,5 @@ export class SectionComponent {
   @Input({required : true}) sectionTitle!: string;
   @Input() sectionSubtitle: string | undefined;
   @Input({required:true}) sectionImage!: string;
+  @Input() sectionDirection?: 'left' | 'right';
 }

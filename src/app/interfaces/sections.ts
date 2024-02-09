@@ -3,4 +3,5 @@ export interface Sections {
   sectionTitle: string;
   sectionSubtitle: string;
   sectionImage: string;
+  sectionDirection?: 'left' | 'right';
 }

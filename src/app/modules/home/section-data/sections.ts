@@ -23,6 +23,7 @@ export const sections: Sections[] = [
     id: 4,
     sectionTitle: 'Learn to plan more responsibly and efficiently',
     sectionSubtitle: 'Get some tips to reduce waste and improve your heals by learning more the food and tools in your kitchen.',
-    sectionImage: 'assets/images/mealprep3.jpg'
+    sectionImage: 'assets/images/mealprep3.jpg',
+    sectionDirection: 'right'
   }
 ];
