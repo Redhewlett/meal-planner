@@ -1,2 +1,9 @@
 <app-header></app-header>
-<app-section></app-section>
+@for (section of sections; track section.id) {
+<app-section
+  [sectionTitle]="section.sectionTitle"
+  [sectionSubtitle]="section.sectionSubtitle"
+  [sectionImage]="section.sectionImage"
+>
+</app-section>
+}
