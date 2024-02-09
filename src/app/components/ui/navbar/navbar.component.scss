@@ -8,37 +8,20 @@
   background-color: white;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  & h1 {
-    margin: 0;
-    font-weight: 500;
+  & ul {
     display: flex;
-    gap: 0.5rem;
-    align-items: center;
-  }
-  &__buttons {
-    width: 50%;
     list-style: none;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 1rem;
+    padding-inline: 2rem;
     & li {
-      margin: 0;
-      padding: 0;
-    }
-    & .mdc-fab {
-      box-shadow: none;
-      transition: all 0.2s ease-in-out;
-      &:hover {
-        background-color: white;
-        outline: 1px solid $primary;
+      margin: 0 1rem;
+      & a {
+        text-decoration: none;
         color: $primary;
+        font-weight: 600;
+        &:hover {
+        }
       }
-    }
-    & .mdc-icon-button {
-      color: $primary;
     }
   }
 }
