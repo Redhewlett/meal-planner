@@ -1,10 +1,15 @@
 <section>
   <!-- regular content -->
-  <div>
-    <h3>example section title</h3>
-    <p>subtitle example for section title example</p>
+  <div class="section_main">
+    <h3>{{ sectionTitle }}</h3>
+    @if (sectionSubtitle) {
+    <p class="section_main_subtitle">subtitle example for section title example</p>
+    }
   </div>
   <!-- if custom content -->
   <ng-content></ng-content>
   <!-- image block -->
+  <div class="section_image">
+    <img src="{{ sectionImage }}" alt="{{ sectionTitle }}" />
+  </div>
 </section>
