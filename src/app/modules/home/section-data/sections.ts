@@ -21,9 +21,9 @@ export const sections: Sections[] = [
   },
   {
     id: 4,
-    sectionTitle: 'Learn to plan more responsibly and efficiently',
-    sectionSubtitle: 'Get some tips to reduce waste and improve your heals by learning more the food and tools in your kitchen.',
-    sectionImage: 'assets/images/mealprep3.jpg',
+    sectionTitle: 'Plan responsible and health meals',
+    sectionSubtitle: 'Learn ways to minimize waste and enhance meal quality through better understanding of the food and utensils in your kitchen.',
+    sectionImage: 'assets/images/ecofriendly.jpg',
     sectionDirection: 'right'
   }
 ];
