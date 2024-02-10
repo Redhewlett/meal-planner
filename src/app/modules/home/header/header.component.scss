@@ -2,8 +2,10 @@
 @import '../../../../variables.scss';
 
 header {
+  height: 400px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 1rem;
   background:
     linear-gradient(

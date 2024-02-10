@@ -1,9 +1,16 @@
-<section [class]="sectionDirection??''">
+<section
+  [class]="sectionDirection ?? ''"
+  appObserveElement
+  #intersection="intersection"
+  [isContinuous]="false"
+  [ngClass]="intersection._isIntersecting ? 'section--visible' : ''"
+  [style.animation-delay]="index * 0.1 + 's'"
+>
   <!-- regular content -->
   <div class="section_main">
     <h3>{{ sectionTitle }}</h3>
     @if (sectionSubtitle) {
-    <p class="section_main_subtitle">{{sectionSubtitle}} </p>
+    <p class="section_main_subtitle">{{ sectionSubtitle }}</p>
     }
   </div>
   <!-- if custom content -->

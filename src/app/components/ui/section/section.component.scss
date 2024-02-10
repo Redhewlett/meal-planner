@@ -2,10 +2,17 @@
 @import "../../../../variables.scss";
 
 section {
+  height: 700px;
   display: flex;
   justify-content: space-between;
   background-color: white;
   @include content-pad;
+  transition: all 0.2s ease-in-out;
+  transform: translateX(-100%);
+  opacity: 0;
+  &.section--visible {
+    animation: slide-in 1s ease-in-out forwards;
+  }
   &.right {
     flex-direction: row-reverse;
   }
@@ -30,5 +37,18 @@ section {
       height: 100%;
       object-fit: cover;
     }
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateX(0%);
   }
 }
