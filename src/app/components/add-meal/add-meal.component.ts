@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
-import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
-import { Meal } from 'src/app/interfaces/meal';
+import {
+  FormBuilder,
+  Validators,
+  ReactiveFormsModule,
+  FormGroup,
+  FormControl,
+} from '@angular/forms';
+import { Meal, MealForm } from 'src/app/interfaces/meal';
 import { MealService } from 'src/app/services/meal.service';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { CommonModule } from '@angular/common';
@@ -10,18 +16,33 @@ import { ButtonComponent } from '../ui/button/button.component';
 @Component({
   selector: 'app-add-meal',
   standalone: true,
-  imports: [MatFormField, ButtonComponent, MatLabel, CommonModule, ReactiveFormsModule, MatInputModule, MatButton],
+  imports: [
+    MatFormField,
+    ButtonComponent,
+    MatLabel,
+    CommonModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatButton,
+  ],
   templateUrl: './add-meal.component.html',
   styleUrls: ['./add-meal.component.scss'],
 })
 export class AddMealComponent {
-  public mealForm = this.formBuilder.nonNullable.group({
-    name: ['', [Validators.required, Validators.minLength(3)]],
-    ingredients: ['', [Validators.required, Validators.minLength(10)]],
-    difficulty: [1, Validators.required],
-    tags: ['', [Validators.required, Validators.minLength(10)]],
-    image: [''],
-  });
+  public mealForm: FormGroup<MealForm> =
+    this.formBuilder.nonNullable.group<MealForm>({
+      name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      ingredients: new FormControl('', [
+        Validators.required,
+        Validators.minLength(10),
+      ]),
+      difficulty: new FormControl(1, [Validators.required]),
+      tags: new FormControl('', [
+        Validators.required,
+        Validators.minLength(10),
+      ]),
+      image: new FormControl(''),
+    });
 
   constructor(
     private formBuilder: FormBuilder,
@@ -47,11 +68,17 @@ export class AddMealComponent {
       tags: tags.map((tag) => tag.trim()),
       image: image,
     };
-
-    this.mealService.addMeal(newMeal).subscribe((meal) => {
+    // optimise this later
+    this.mealService.addMeal(newMeal).subscribe(() => {
       this.mealService.getMeals().subscribe();
     });
 
     this.mealForm.reset();
+    // for each control, set untouched, pristine, valid
+    Object.keys(this.mealForm.controls).forEach((key) => {
+      this.mealForm.get(key)?.setErrors(null);
+      this.mealForm.get(key)?.markAsPristine();
+      this.mealForm.get(key)?.markAsUntouched();
+    });
   }
 }
