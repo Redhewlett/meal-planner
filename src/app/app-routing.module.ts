@@ -9,8 +9,8 @@ const routes: Routes = [
     path: '',
     component: HomeComponent
   },
-  { path: 'addMeal', component: AddMealComponent },
-  { path: 'planWeek', component: PlanWeekComponent },
+  { path: 'add-meal', component: AddMealComponent },
+  { path: 'plan-week', component: PlanWeekComponent },
 ];
 
 @NgModule({

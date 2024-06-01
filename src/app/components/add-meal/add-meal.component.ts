@@ -4,10 +4,12 @@ import { Meal } from 'src/app/interfaces/meal';
 import { MealService } from 'src/app/services/meal.service';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { CommonModule } from '@angular/common';
+import { MatInputModule } from '@angular/material/input';
+import { MatButton } from '@angular/material/button';
 @Component({
   selector: 'app-add-meal',
   standalone: true,
-  imports: [MatFormField, MatLabel, CommonModule, ReactiveFormsModule],
+  imports: [MatFormField, MatLabel, CommonModule, ReactiveFormsModule, MatInputModule, MatButton],
   templateUrl: './add-meal.component.html',
   styleUrls: ['./add-meal.component.scss'],
 })
