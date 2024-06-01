@@ -1,27 +1,30 @@
-@import '../../../../variables.scss';
+@import "../../../../variables.scss";
 
-button{
+button {
   color: white;
   border: 1px solid $primary;
   padding: 10px 20px;
-  font-size: .9rem;
+  font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  &.primary{
+  &.primary {
     background-color: $primary;
   }
-  &.secondary{
-    border : 1px solid $primary;
+  &.secondary {
+    border: 1px solid $primary;
     color: $primary;
   }
-  &:hover{
+  &:hover {
     background-color: darken($primary, 10%);
     color: $text-w;
   }
-  &:focus{
+  &:focus {
     outline: none;
   }
-  &:disabled{
-    cursor: not-allowed;
+  &.disabled {
+    background-color: grey;
+    border: 1px solid grey;
+    color: $text-w;
+    pointer-events: none;
   }
 }

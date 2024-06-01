@@ -49,13 +49,6 @@
         placeholder="optional image url"
       />
     </mat-form-field>
-    <button
-      [disabled]="!this.mealForm.valid"
-      color="primary"
-      mat-raised-button
-      type="submit"
-    >
-      Submit
-    </button>
+    <app-button text="Submit" [disabled]="!mealForm.valid"></app-button>
   </form>
 </div>

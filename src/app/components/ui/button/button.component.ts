@@ -13,4 +13,5 @@ export type ButtonType = 'primary' | 'secondary' | 'tertiary';
 export class ButtonComponent {
   @Input({required: true}) text!: string;
   @Input() type: ButtonType = 'primary'
+  @Input() disabled = false;
 }

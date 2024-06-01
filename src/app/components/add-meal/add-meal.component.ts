@@ -6,10 +6,11 @@ import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { CommonModule } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
 import { MatButton } from '@angular/material/button';
+import { ButtonComponent } from '../ui/button/button.component';
 @Component({
   selector: 'app-add-meal',
   standalone: true,
-  imports: [MatFormField, MatLabel, CommonModule, ReactiveFormsModule, MatInputModule, MatButton],
+  imports: [MatFormField, ButtonComponent, MatLabel, CommonModule, ReactiveFormsModule, MatInputModule, MatButton],
   templateUrl: './add-meal.component.html',
   styleUrls: ['./add-meal.component.scss'],
 })
