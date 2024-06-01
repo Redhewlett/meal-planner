@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import {
-  FormBuilder,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Meal } from 'src/app/interfaces/meal';
 import { MealService } from 'src/app/services/meal.service';
-
+import { MatFormField, MatLabel } from '@angular/material/form-field';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-add-meal',
+  standalone: true,
+  imports: [MatFormField, MatLabel, CommonModule, ReactiveFormsModule],
   templateUrl: './add-meal.component.html',
   styleUrls: ['./add-meal.component.scss'],
 })

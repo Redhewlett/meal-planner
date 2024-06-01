@@ -1,5 +1,6 @@
-<div class="card" *ngIf="meal">
-  <img  [src]="meal.image" />
+@if(meal){
+<div class="card">
+  <img [src]="meal.image" />
   <button
     class="card__deleteBtn"
     mat-icon-button
@@ -15,16 +16,21 @@
         ><strong>Ingredients:</strong> {{ meal.ingredients.join(", ") }}</span
       >
       <span class="card__text__difficulty"
-        ><strong>Difficulty:</strong
-        ><mat-icon color="warn" *ngFor="let n of range(meal.difficulty)"
+        ><strong>Difficulty:</strong>
+        @for(n of range(meal.difficulty); track $index){
+        <mat-icon color="warn" *ngFor="let n of range(meal.difficulty)"
           >star</mat-icon
         >
+        }
       </span>
       <span class="card__text__tags">
-        <b *ngFor="let tag of meal.tags">
+        @for(tag of meal.tags; track $index){
+        <b>
           {{ tag }}
         </b>
+        }
       </span>
     </p>
   </div>
 </div>
+}
